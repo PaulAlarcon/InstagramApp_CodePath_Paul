@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.parse.LogInCallback;
 import com.parse.ParseException;
@@ -48,10 +49,13 @@ public class MainActivity extends AppCompatActivity {
                 if( e != null){
                     Log.e(TAG, "Issue with Login!");
                     e.printStackTrace();
+                    Toast.makeText(MainActivity.this, "Wrong password/username", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 goMainActivity();
                 Log.e(TAG, "Signed in Successfully");
+                Toast.makeText(MainActivity.this, "Welcome! ", Toast.LENGTH_SHORT).show();
+
                 finish();
             }
         });

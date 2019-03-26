@@ -7,7 +7,7 @@
     android:layout_margin="20dp"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".LoginActivity">
+    tools:context=".MainActivity">
 
     <EditText
         android:id="@+id/userInput"
