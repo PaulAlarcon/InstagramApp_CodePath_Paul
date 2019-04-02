@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText userInput;
     private EditText passInput;
     private Button btnInput;
+    private Button btnSignup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
         userInput = findViewById(R.id.userInput);
         passInput = findViewById(R.id.passInput);
         btnInput = findViewById(R.id.btnInput);
+        btnSignup = findViewById(R.id.btnSignup);
+
 
         btnInput.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,6 +42,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btnSignup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SigningUP();
+
+            }
+        });
+
+    }
+
+    private void SigningUP() {
+        Intent i = new Intent(this, SignUpActivity.class);
+        startActivity(i);
     }
 
     private void login(String username, String password) {
@@ -52,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Wrong password/username", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                goMainActivity();
+                goHomeActivity();
                 Log.e(TAG, "Signed in Successfully");
                 Toast.makeText(MainActivity.this, "Welcome! ", Toast.LENGTH_SHORT).show();
 
@@ -61,7 +77,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void goMainActivity() {
+
+
+    private void goHomeActivity() {
 
         Intent i = new Intent(this, HomeActivity.class);
         startActivity(i);
